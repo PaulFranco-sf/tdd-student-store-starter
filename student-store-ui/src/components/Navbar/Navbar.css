@@ -1,0 +1,22 @@
+.navbar {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  height: 70px;
+  padding: 0;
+  background-color: #4b7183;
+  color: #fff;
+}
+
+.navbar-contents {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 300px 0 100px;
+}
+
+.content{
+  border-spacing: 15px;
+  border-color: 3px solid white;
+  border-radius: 10px;
+}

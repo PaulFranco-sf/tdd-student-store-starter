@@ -1,0 +1,16 @@
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-detail> img {
+  max-height: 600px;
+}
+
+.product-detail > div,
+.product-detail > div > button  {
+  margin: 10px
+}
