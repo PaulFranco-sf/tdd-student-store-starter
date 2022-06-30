@@ -1,0 +1,22 @@
+.subdiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emptycart{
+    font-size: 50px;
+    margin: 20;
+    text-align: center;
+    border-color: 2px solid black;
+}
+
+tr:nth-child(even) {
+    background-color: #000000;
+  }
+
+.costSummary{
+    padding-left: 100px;
+    border-color: blueviolet 100px solid;
+}

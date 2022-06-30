@@ -15,6 +15,7 @@ function CheckoutForm ({
     <div className="checkout">
       <h1>Checkout Info</h1>
       <input
+        className='inputbox'
         name="name"
         value={checkoutForm.name}
         type="text"
@@ -26,6 +27,7 @@ function CheckoutForm ({
         }}
       />
       <input
+        className='inputbox'
         name="email"
         value={checkoutForm.email}
         type="email"

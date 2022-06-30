@@ -13,8 +13,9 @@ import Sidebar from '../Sidebar/Sidebar';
 import Home from '../Home/Home';
 
 export default function App() {
-  const APIURL = 'https://codepath-store-api.herokuapp.com';
+  const APIURL = 'http://localhost:3001';
   const [products, setProducts] = useState([]);
+  const [filter, setFilter] = useState('All Categories');
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState('');
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,6 @@ export default function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
   const [shoppingCartPrice, setShoppingCartPrice] = useState(0);
   const [checkoutForm, setCheckoutForm] = useState({name: '', email: '', });
-  const [filter, setFilter] = useState('All Categories');
 
   function scrollToAbout(){
     const aboutDiv = document.getElementById('About')
@@ -109,10 +109,10 @@ export default function App() {
             scrollAbout={scrollToAbout}
             />
           <Hero />
-          <SearchBar
+          {/* <SearchBar
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
-            />
+            /> */}
           <Categories
           setFilter={setFilter}
           filter={filter}
@@ -181,16 +181,16 @@ function Categories({ filter, setFilter }) {
   );
 };
 
-function SearchBar ({ searchQuery, setSearchQuery }) {
-  return (
-    <div className="searchbar-container">
-      <input className='searchbar'
-        placeholder="Search for Any Item!"
-        value={searchQuery}
-        onChange={(e) => {
-          setSearchQuery(e.target.value);
-        }}
-      />
-    </div>
-  );
-};
+// function SearchBar ({ searchQuery, setSearchQuery }) {
+//   return (
+//     <div className="searchbar-container">
+//       <input className='searchbar'
+//         placeholder="Search for Any Item!"
+//         value={searchQuery}
+//         onChange={(e) => {
+//           setSearchQuery(e.target.value);
+//         }}
+//       />
+//     </div>
+//   );
+// };

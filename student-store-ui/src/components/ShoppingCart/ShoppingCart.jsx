@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import './ShoppingCart.css';
 
 function roundTo(n, digits) {
   var negative = false;
@@ -21,23 +22,17 @@ function roundTo(n, digits) {
 function ShoppingCart ({ shoppingCart, shoppingCartPrice }) {
   return (
     <div className="shopping-cart">
-      <div
-        style={{
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
+      <div className='subdiv'>
         <h1>Shopping Cart</h1>{' '}
         <i className="material-icons md-48">add_shopping_cart</i>
       </div>
       {shoppingCart.length === 0 ? (
-        <div style={{ fontSize: '1rem', margin: 20 }}>
+        <div className='emptycart'>
            Keep shopping!
         </div>
       ) : (
         <div>
-          <Table shoppingCart={shoppingCart} />
+          <CostTable shoppingCart={shoppingCart} />
           <CostSummary shoppingCart={shoppingCart} shoppingCartPrice={shoppingCartPrice}/>
         </div>
       )}
@@ -51,7 +46,14 @@ export default ShoppingCart;
 function CostSummary ({ shoppingCart, shoppingCartPrice }) {
   console.log(shoppingCartPrice)
   return (
-    <table className="summary-container">
+    <div>
+    <table className="costSummary">
+        <thead>
+        <tr className="header">
+          <th className="center">Cost Breakdown</th>
+          <th className="center">Total Cost</th>
+        </tr>
+      </thead>
       <tr className="summary-row">
         <td>Subtotal</td>
         <td>${roundTo(shoppingCartPrice)}</td>
@@ -65,28 +67,29 @@ function CostSummary ({ shoppingCart, shoppingCartPrice }) {
         <td>${roundTo(shoppingCartPrice + shoppingCartPrice * 0.875)}</td>
       </tr>
     </table>
+    </div>
   );
 };
 
-function Table({ shoppingCart, shoppingCartPrice }) {
+function CostTable({ shoppingCart, shoppingCartPrice }) {
   return (
     <table className="CartTable">
       <thead>
         <tr className="header">
-          <th className="flex-2">Name</th>
+          <th className="flex-2">Item</th>
           <th className="center">Quantity</th>
-          <th className="center">Unit Price</th>
-          <th className="center">Cost</th>
+          <th className="center">Price</th>
+          <th className="center">Total</th>
         </tr>
       </thead>
       <tbody>
         {shoppingCart.map((item, i) => {
           return (
-            <tr className="product-row" key={i}>
-              <td className="flex-2 cart-product-name">{item.name}</td>
-              <td className="center cart-product-quantity">{item.quantity}</td>
-              <td className="center cart-product-price">${item.price}</td>
-              <td className="center cart-product-subtotal">
+            <tr key={i}>
+              <td>{item.name}</td>
+              <td>{item.quantity}</td>
+              <td>${item.price}</td>
+              <td>
                 ${roundTo(item.price * item.quantity)}
               </td>
             </tr>

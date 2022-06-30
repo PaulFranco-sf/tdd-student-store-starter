@@ -1,6 +1,6 @@
 import * as React from 'react';
-import CheckoutForm from './CheckoutForm/CheckoutForm';
-import ShoppingCart from './ShoppingCart/ShoppingCart';
+import CheckoutForm from '../CheckoutForm/CheckoutForm';
+import ShoppingCart from '../ShoppingCart/ShoppingCart';
 import './Sidebar.css';
 
 export default function Sidebar({

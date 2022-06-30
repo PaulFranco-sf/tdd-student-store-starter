@@ -25,6 +25,7 @@
   max-width: 100vw;
   min-height: 350px;
   margin: 40px 0;
+  
 }
 
 .About .content {
@@ -33,6 +34,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  
   min-height: 350px;
 }
 
@@ -63,11 +65,11 @@
 }
 
 .About .content .summary .media {
-  background: var(--dark-blue);
   height: 329px;
+  background-color: #5390ac;
 }
 .About .content .summary .media img {
-  background: var(--dark-blue);
+  background-color: #5390ac;
   height: 240px;
 }
 
@@ -105,7 +107,7 @@
 .Contact .content .summary {
   display: flex;
   flex-direction: row;
-  background: var(--dark-blue);
+  background-color: #5390ac;
   color: var(--pure-white);
   height: 330px;
   border: solid 1px #e0e0e0;
@@ -150,6 +152,7 @@
 .Contact .content .summary .info li .socials svg {
   height: 24px;
   width: 24px;
+  
 }
 
 .Contact .content .summary .media {
@@ -158,6 +161,7 @@
   align-items: center;
   justify-content: flex-end;
   height: 330px;
+  background-color: #5390ac;
 }
 
 .Contact .content .summary .media img {
