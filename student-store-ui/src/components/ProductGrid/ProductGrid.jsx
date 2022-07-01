@@ -14,13 +14,11 @@ function ProductGrid({
   const [showDescription, setShowDescription] = useState();
   let productFilter;
   if (filter == 'All Categories') {
-    if (searchQuery == '') {
-      productFilter = products;
-    } else {
+
       productFilter = products.filter((item) => {
         return item.name.toLowerCase().includes(searchQuery.toLowerCase());
       });
-    }
+    
   } else {
     productFilter = products.filter((item) => {
       return (
@@ -29,7 +27,7 @@ function ProductGrid({
       );
     });
   }
-
+  console.log(productFilter)
   return (
     <div style={{ margin: '30px 50px 30px 120px' }}>
       <h1>Current Products</h1>

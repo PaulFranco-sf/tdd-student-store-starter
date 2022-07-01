@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 const store = require('./routes/store');
 const purchase = require('./routes/purchase');
+const fs = require('fs');
+
 var bodyParser = require('body-parser');
 
 app.use(cors());

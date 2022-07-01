@@ -13,14 +13,33 @@ export default function Sidebar({
   handleOnCheckoutFormChange,
   handleOnSubmitCheckoutForm,
 }) {
+
+function roundTo(n, digits) {
+  var negative = false;
+  if (digits === undefined) {
+      digits = 0;
+  }
+  if (n < 0) {
+      negative = true;
+      n = n * -1;
+  }
+  var multiplicator = Math.pow(10, digits);
+  n = parseFloat((n * multiplicator).toFixed(11));
+  n = (Math.round(n) / multiplicator).toFixed(digits);
+  if (negative) {
+      n = (n * -1).toFixed(digits);
+  }
+  return n;
+}
   return (
     <section className="sidebar">
       <div className="sidenav" style={{ width: isOpen ? '600px' : 0 }}>
         <div className="closebtn" onClick={handleOnToggle}>
           &times;
         </div>
-        <ShoppingCart shoppingCart={shoppingCart} shoppingCartPrice={shoppingCartPrice} />
+        <ShoppingCart roundTo={roundTo} shoppingCart={shoppingCart} shoppingCartPrice={shoppingCartPrice} />
         <CheckoutForm
+          roundTo={roundTo}
           checkoutForm={checkoutForm}
           handleOnCheckoutFormChange={handleOnCheckoutFormChange}
           handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}

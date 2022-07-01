@@ -1,25 +1,8 @@
 import React from 'react';
 import './ShoppingCart.css';
 
-function roundTo(n, digits) {
-  var negative = false;
-  if (digits === undefined) {
-      digits = 0;
-  }
-  if (n < 0) {
-      negative = true;
-      n = n * -1;
-  }
-  var multiplicator = Math.pow(10, digits);
-  n = parseFloat((n * multiplicator).toFixed(11));
-  n = (Math.round(n) / multiplicator).toFixed(digits);
-  if (negative) {
-      n = (n * -1).toFixed(digits);
-  }
-  return n;
-}
 
-function ShoppingCart ({ shoppingCart, shoppingCartPrice }) {
+function ShoppingCart ({ shoppingCart, shoppingCartPrice, roundTo }) {
   return (
     <div className="shopping-cart">
       <div className='subdiv'>
@@ -32,8 +15,8 @@ function ShoppingCart ({ shoppingCart, shoppingCartPrice }) {
         </div>
       ) : (
         <div>
-          <CostTable shoppingCart={shoppingCart} />
-          <CostSummary shoppingCart={shoppingCart} shoppingCartPrice={shoppingCartPrice}/>
+          <CostTable roundTo={roundTo} shoppingCart={shoppingCart} />
+          <CostSummary roundTo={roundTo} shoppingCart={shoppingCart} shoppingCartPrice={shoppingCartPrice}/>
         </div>
       )}
     </div>
@@ -43,7 +26,7 @@ function ShoppingCart ({ shoppingCart, shoppingCartPrice }) {
 export default ShoppingCart;
 
 
-function CostSummary ({ shoppingCart, shoppingCartPrice }) {
+function CostSummary ({ shoppingCart, shoppingCartPrice, roundTo }) {
   console.log(shoppingCartPrice)
   return (
     <div>
@@ -71,7 +54,7 @@ function CostSummary ({ shoppingCart, shoppingCartPrice }) {
   );
 };
 
-function CostTable({ shoppingCart, shoppingCartPrice }) {
+function CostTable({ shoppingCart, shoppingCartPrice, roundTo }) {
   return (
     <table className="CartTable">
       <thead>

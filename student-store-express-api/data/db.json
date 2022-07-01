@@ -145,5 +145,64 @@
       "price": 999.99
     }
   ],
-  "purchases": []
+  "purchases": [
+    {
+      "id": 1,
+      "purchasedAt": "2022-07-01T06:00:30.410Z",
+      "purchase": {
+        "shoppingCart": [
+          {
+            "productId": 2,
+            "quantity": 1,
+            "price": 1.5,
+            "name": "Flamin Hot Cheetos"
+          },
+          {
+            "productId": 4,
+            "quantity": 2,
+            "price": 3.25,
+            "name": "Coconut Water"
+          },
+          {
+            "productId": 8,
+            "quantity": 1,
+            "price": 19.99,
+            "name": "Knitted Beanie"
+          },
+          {
+            "productId": 10,
+            "quantity": 2,
+            "price": 34.99,
+            "name": "Alpaca Wool Scarf"
+          }
+        ],
+        "name": "Paxul",
+        "email": "paul@gmail.com",
+        "orderTotal": 97.97
+      }
+    },
+    {
+      "id": 2,
+      "purchasedAt": "2022-07-01T06:08:14.089Z",
+      "purchase": {
+        "shoppingCart": [
+          {
+            "productId": 1,
+            "quantity": 4,
+            "price": 0.99,
+            "name": "Rice Krispies"
+          },
+          {
+            "productId": 2,
+            "quantity": 3,
+            "price": 1.5,
+            "name": "Flamin Hot Cheetos"
+          }
+        ],
+        "name": "PAUL AGAIN",
+        "email": "paulagain@gmail.com",
+        "orderTotal": 8.46
+      }
+    }
+  ]
 }
