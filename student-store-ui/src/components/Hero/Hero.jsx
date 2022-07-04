@@ -2,9 +2,9 @@ import React from 'react';
 import './Hero.css';
 import Icon from "../../student_store_icon.18e5d61a.svg"
 
-function Hero(){
+function Hero({hide}){
   return (
-    <div className="hero">
+    <div className="hero"  >
       <div className="content">
         <div className="intro">
           <h1>Welcome! <br></br>

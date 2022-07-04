@@ -26,7 +26,6 @@ async function sendOrder() {
           "orderTotal": shoppingCartPrice,
         }
       });
-      console.log(response)
     } catch (e) {
       console.log(e);
     }
@@ -60,33 +59,31 @@ async function sendOrder() {
         }}
       />
       <button className="checkoutbtn" hidden={hide} onClick={() => {handleOnSubmitCheckoutForm(); setLoad(true); setHide(true); sendOrder(); }}>Checkout</button>
-      <Receipt roundTo={roundTo} load={load} shoppingCart={shoppingCart} shoppingCartPrice={shoppingCartPrice} name={name}/>
+      <Receipt email={email} roundTo={roundTo} load={load} shoppingCart={shoppingCart} shoppingCartPrice={shoppingCartPrice} name={name}/>
     </div>
   );
 };
 
 export default CheckoutForm;
 
-function Receipt({load, shoppingCart, shoppingCartPrice, name, roundTo }){  
-  console.log(load)
-  console.log(shoppingCart)
-  console.log(shoppingCartPrice)
+function Receipt({load, shoppingCart, shoppingCartPrice, name, roundTo, email }){  
   if (load == true){
   return (
     <div className='receipt'>
-      <p> Showing receipt for <b>{name}</b></p>
+      <p><b> Showing receipt for {name}</b></p>
       {shoppingCart.map((item, i) => {
           return (
             <p>
             <ul>
-              <li>{item.quantity} {item.name} purchased at a cost of ${roundTo(item.price)} for a total of ${roundTo(item.price * item.quantity)}</li>
+              <li><b>{item.quantity} {item.name} purchased at a cost of ${roundTo(item.price)} for a total of ${roundTo(item.price * item.quantity)}</b></li>
             </ul>
             </p>
           );
         })}
-        <p>Before taxes, the subtotal was ${roundTo(shoppingCartPrice)}. <br></br> After taxes and fees were applied, the total comes out to ${roundTo(shoppingCartPrice + (shoppingCartPrice * .80))}</p>
+        <p><b>Before taxes, the subtotal was ${roundTo(shoppingCartPrice)}.</b> <br></br><b>After taxes and fees were applied, the total comes out to ${roundTo(shoppingCartPrice + (shoppingCartPrice * .80))}</b> </p><br></br>
+        <p><b>Email receipt has been sent to {email} </b></p>
     </div>
   )
       }
-  else{return null}
+  else {return null}
 }

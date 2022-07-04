@@ -18,4 +18,26 @@ router.post("/", async (req, res, next) => {
     }
 })
 
+router.get("/", async (req, res, next) => {
+    try{
+        const purchases = await Purchase.listPurchases()
+        res.status(200).json({ purchases })
+    } catch(err){
+        next(err)
+    }
+})
+
+
+router.delete("/", async (req, res, next) => {
+    // const orderId = req.params.id
+    console.log(req.params)
+    // console.log(orderId)
+    // try{
+    //     const deletedOrder = await Purchase.deletePurchase()
+    //     res.status(200).send(orderId)
+    // } catch(err){
+    //     next(err)
+    // }
+})
+
 module.exports = router;

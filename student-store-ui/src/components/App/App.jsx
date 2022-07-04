@@ -11,6 +11,7 @@ import Hero from '../Hero/Hero';
 import Navbar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar';
 import Home from '../Home/Home';
+import Purchases from '../Purchases/Purchases';
 
 export default function App() {
   const APIURL = 'http://localhost:3001';
@@ -23,7 +24,8 @@ export default function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
   const [shoppingCartPrice, setShoppingCartPrice] = useState(0);
   const [checkoutForm, setCheckoutForm] = useState({name: '', email: '', });
-
+  const [ordersLoaded, setOrdersLoaded] = useState(false)
+  console.log(ordersLoaded)
   function scrollToAbout(){
     const aboutDiv = document.getElementById('About')
     aboutDiv.scrollIntoView({ behavior: 'smooth', block: 'center' })
@@ -107,16 +109,17 @@ export default function App() {
             scrollFooter={scrolltoFooter}
             scrollContact={scrollToContact}
             scrollAbout={scrollToAbout}
+            setOrdersLoaded={setOrdersLoaded}
+            ordersLoaded={ordersLoaded}
             />
-          <Hero />
-          {/* <SearchBar
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-            /> */}
-          <Categories
-          setFilter={setFilter}
-          filter={filter}
-          />
+          {ordersLoaded
+            ? <></>
+            : <><Hero/>
+            <Categories
+            setFilter={setFilter}
+            filter={filter}
+            /></>
+          }
 
           <Sidebar
             shoppingCartPrice={shoppingCartPrice}
@@ -156,6 +159,11 @@ export default function App() {
                 />
               }
             />
+            <Route
+              path="/purchases"
+              element={
+                <Purchases APIURL={APIURL} setOrdersLoaded={setOrdersLoaded} ordersLoaded={ordersLoaded} />
+              }/>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
@@ -180,17 +188,3 @@ function Categories({ filter, setFilter }) {
     </div>
   );
 };
-
-// function SearchBar ({ searchQuery, setSearchQuery }) {
-//   return (
-//     <div className="searchbar-container">
-//       <input className='searchbar'
-//         placeholder="Search for Any Item!"
-//         value={searchQuery}
-//         onChange={(e) => {
-//           setSearchQuery(e.target.value);
-//         }}
-//       />
-//     </div>
-//   );
-// };

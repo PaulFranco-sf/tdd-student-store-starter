@@ -10,7 +10,7 @@ class Purchases {
     static async recordPurchase(purchase) {
         // create a new transaction
     
-        if (!purchase) {
+        if (!purchase) {  
           return console.log("No purchase sent")
         }
         // const requiredFields = ["orderId", "category", "amount"]
@@ -30,6 +30,12 @@ class Purchases {
     
         return newPurchase
       }
+
+      static async deletePurchase(orderId) {
+        // storage.delete("purchases", orderId).pull(orderId).write()
+        return console.log(orderId)
+      }
+
 }
 
 module.exports = Purchases

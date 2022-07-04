@@ -21,6 +21,10 @@ class Storage {
   get(key) {
     return this.db.get(key)
   }
+
+  delete(key, id){
+    // return this.db.get(key).remove({ id: id}).write()
+  }
 }
 
 module.exports = {

@@ -1,0 +1,29 @@
+.orderTable{
+    margin: auto;
+    width: 80%;
+    height: 100%;
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color:#7fbcd8;;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:   #7fbcd8;
+    color: white;
+  }
